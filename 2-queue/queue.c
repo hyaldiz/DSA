@@ -14,6 +14,7 @@ HndQueue_t createQueue(size_t initialCapacity)
     {
         fprintf(stderr,"Queue memberlar için yeterli alan tahsis edilemedi!\n");
         free(pQueue);
+        return NULL;
     }
 
     pQueue->capacity = initialCapacity;
@@ -31,16 +32,12 @@ size_t queueSize(HndQueue_t queue)
 
 bool isFull(HndQueue_t queue)
 {
-    if(queue->rear == queue->capacity -1)
-        return true;
-    return false;
+    return queue->rear == queue->capacity -1;
 }
 
 bool isEmpty(HndQueue_t queue)
 {
-    if(queue->rear == -1)
-        return true;
-    return false;
+    return queue->rear == -1;
 }
 
 void enQueue(HndQueue_t queue,QueueValueType_t newValue)

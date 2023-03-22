@@ -29,18 +29,12 @@ size_t stackSize(HndStack_t stack)
 
 bool isFull(HndStack_t stack)
 {
-    if(stack->top == stack->capacity -1)
-        return true;
-    else
-        return false;
+    return stack->top == stack->capacity -1;
 }
 
 bool isEmpty(HndStack_t stack)
 {
-    if(stack->top == -1)
-        return true;
-    else
-        return false;
+    return stack->top == -1;
 }
 
 void push(HndStack_t stack,ValueType_t newItem)
