@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "./include/queue.h"
 
 HndQueue_t createQueue(size_t initialCapacity)
 {
@@ -30,19 +30,19 @@ size_t queueSize(HndQueue_t queue)
     return queue->size;
 }
 
-bool isFull(HndQueue_t queue)
+bool isQueueFull(HndQueue_t queue)
 {
     return queue->rear == queue->capacity -1;
 }
 
-bool isEmpty(HndQueue_t queue)
+bool isQueueEmpty(HndQueue_t queue)
 {
     return queue->rear == -1;
 }
 
 void enQueue(HndQueue_t queue,QueueValueType_t newValue)
 {
-    if(isFull(queue))
+    if(isQueueFull(queue))
         fprintf(stderr,"enQueue full\n");
     else
     {
@@ -56,7 +56,7 @@ void enQueue(HndQueue_t queue,QueueValueType_t newValue)
 
 void deQueue(HndQueue_t queue)
 {
-    if(isEmpty(queue))
+    if(isQueueEmpty(queue))
         fprintf(stderr,"deQueue Empty!\n");
     else
     {
@@ -69,7 +69,7 @@ void deQueue(HndQueue_t queue)
 
 void printQueue(HndQueue_t queue)
 {
-    if(isEmpty(queue))
+    if(isQueueEmpty(queue))
         fprintf(stderr,"printQueue empty!\n");
     else
     {

@@ -1,6 +1,6 @@
-#include "stack.h"
+#include "./include/stack.h"
 
-HndStack_t createEmptyStack(size_t initialCapacity)
+HndStack_t createStack(size_t initialCapacity)
 {
     HndStack_t pStack = (HndStack_t)malloc(sizeof(Stack_t));
     if(!pStack)
@@ -20,6 +20,7 @@ HndStack_t createEmptyStack(size_t initialCapacity)
     pStack->size = 0;
     pStack->capacity = initialCapacity;
     pStack->top = -1;
+    return pStack;
 }
 
 size_t stackSize(HndStack_t stack)
@@ -27,19 +28,19 @@ size_t stackSize(HndStack_t stack)
     return stack->size;
 }
 
-bool isFull(HndStack_t stack)
+bool isStackFull(HndStack_t stack)
 {
     return stack->top == stack->capacity -1;
 }
 
-bool isEmpty(HndStack_t stack)
+bool isStackEmpty(HndStack_t stack)
 {
     return stack->top == -1;
 }
 
 void push(HndStack_t stack,ValueType_t newItem)
 {
-    if(isFull(stack))
+    if(isStackFull(stack))
         fprintf(stderr,"Push Stack dolu!\n");
     else
     {
@@ -51,7 +52,7 @@ void push(HndStack_t stack,ValueType_t newItem)
 
 void pop(HndStack_t stack)
 {
-    if(isEmpty(stack))
+    if(isStackEmpty(stack))
         fprintf(stderr,"Pop Stack Bos!\n");
     else
     {
@@ -62,7 +63,7 @@ void pop(HndStack_t stack)
 
 ValueType_t peek(HndStack_t stack)
 {
-    if(isEmpty(stack))
+    if(isStackEmpty(stack))
     {
         fprintf(stderr,"Peek Stack Bos!\n");
         return -1;

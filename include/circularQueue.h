@@ -12,9 +12,8 @@ typedef struct CircularQueue
     CircularQueueValueType* pItems;
     long front;
     long rear;
-    size_t size;
-    size_t capacity;
-
+    long size;
+    long capacity;
 }*HndCircularQueue_t , CircularQueue_t;
 
 HndCircularQueue_t createCircularQueue(size_t initialCapacity);

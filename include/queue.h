@@ -44,14 +44,14 @@ typedef struct Queue
     QueueValueType_t* pItems;
     long front;
     long rear;
-    size_t capacity;
-    size_t size;
+    long capacity;
+    long size;
 }*HndQueue_t,Queue_t;
 
 HndQueue_t createQueue(size_t initialCapacity);
 size_t queueSize(HndQueue_t queue);
-bool isFull(HndQueue_t queue);
-bool isEmpty(HndQueue_t queue);
+bool isQueueFull(HndQueue_t queue);
+bool isQueueEmpty(HndQueue_t queue);
 void enQueue(HndQueue_t queue,QueueValueType_t newValue);
 void deQueue(HndQueue_t queue);
 void printQueue(HndQueue_t queue);

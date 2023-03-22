@@ -43,15 +43,15 @@ typedef int ValueType_t;
 typedef struct Stack
 {
     ValueType_t* pItems;
-    size_t capacity;
-    size_t size;
+    long capacity;
+    long size;
     long top;
 }*HndStack_t,Stack_t;
 
-HndStack_t createEmptyStack(size_t initialCapacity);
+HndStack_t createStack(size_t initialCapacity);
 size_t stackSize(HndStack_t stack);
-bool isFull(HndStack_t stack);
-bool isEmpty(HndStack_t stack);
+bool isStackFull(HndStack_t stack);
+bool isStackEmpty(HndStack_t stack);
 void push(HndStack_t stack,ValueType_t newItem);
 void pop(HndStack_t stack);
 ValueType_t peek(HndStack_t stack);
